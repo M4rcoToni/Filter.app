@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Filter.app",
-    "slug": "Filter.app",
+    "slug": "Filterapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b183e477-ec68-4f61-9a04-bad2f0a8ed3c"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b183e477-ec68-4f61-9a04-bad2f0a8ed3c"
     }
   }
 }
