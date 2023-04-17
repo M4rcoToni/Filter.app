@@ -5,9 +5,9 @@ import { styles } from './styles';
 import * as FaceDetector from 'expo-face-detector';
 import Animated, { useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
 
-import neutralImg from '../assets/neutral.png';
-import smilingImg from '../assets/smiling.png';
-import winkingImg from '../assets/winking.png';
+import neutralImg from '../../assets/neutral.png';
+import smilingImg from '../../assets/smiling.png';
+import winkingImg from '../../assets/winking.png';
 
 export function Home() {
   const [permission, requestPermission] = Camera.useCameraPermissions();
@@ -21,7 +21,7 @@ export function Home() {
   })
   function handleFacesDetected({ faces }: FaceDetectionResult) {
     const face = faces[0] as any;
-    if (faces) {
+    if (face) {
       const { size, origin } = face.bounds;
       faceValues.value = {
         width: size.width,
@@ -38,17 +38,18 @@ export function Home() {
         setEmoji(neutralImg);
 
       setFaceDetected(true);
-    } else
+    } else {
       setFaceDetected(false);
+    }
   }
 
   const animatedStyle = useAnimatedStyle(() => ({
     position: 'absolute',
     zIndex: 1,
-    width: faceValues.value.width,
-    height: faceValues.value.height,
+    width: faceValues.value.width + 100,
+    height: faceValues.value.height + 20,
     transform: [
-      { translateX: faceValues.value.x },
+      { translateX: faceValues.value.x - 50 },
       { translateY: faceValues.value.y }
     ],
   }))
